@@ -18,7 +18,7 @@ This package consists of three parts: 1) Data Preprocessor, 2) Personality Model
 
 ## 4. Hardware requirements
 There are four hardware requirements. Currently, recognition model only uses acoustical data from USB microphones.
-- 1) USB Audio Sensor
+- 1. USB Audio Sensor
 - (Option : Kinect, USB Webcam, Empatica E4 Wristband)
 
 ## 5. Quick start  
