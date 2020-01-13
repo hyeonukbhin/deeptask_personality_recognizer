@@ -8,7 +8,7 @@ A personality recognizer is an agent that recognizes a user's personality in hum
 - 2.2 Maintainer: Hyeonuk Bhin <bhu@kist.re.kr>
 - 2.3 Author: Hyeonuk Bhin, <bhu@kist.re.kr>
 - 2.4 License (optional):
-- 2.5 Source: git https://github.com/hyeonukbhin/personality_recognizer.git (branch: master), git https://github.com/hyeonukbhin/audio_interface.git (branch: master)
+- 2.5 Source: git https://github.com/hyeonukbhin/deeptask_personality_recognizer (branch: master)
 
 ## 3. Overview
 This package consists of three parts: 1) Data Preprocessor, 2) Personality Model and 3) Social Cue Handler. Data Preprocessor converts raw image, human voice and physiological signal to statistical features that machine can understand. In Personality Model, personality scores are estimated based on a learned regression model for two different personalities of human user. Social Cue Handler passes social interaction information like human action, robot task and interaction history to Personality Model. Following figure shows the overall structure of the personality recognizer.
@@ -18,10 +18,8 @@ This package consists of three parts: 1) Data Preprocessor, 2) Personality Model
 
 ## 4. Hardware requirements
 There are four hardware requirements. Currently, recognition model only uses acoustical data from USB microphones.
-- 1) Kinect Camera
-- 2) USB Webcam
-- 3) USB Mic
-- 4) Empatica E4 Wristband
+- 1) USB Audio Sensor
+- (Option : Kinect, USB Webcam, Empatica E4 Wristband)
 
 ## 5. Quick start  
 To install dependancy:
@@ -32,7 +30,6 @@ sudo pip install --upgrade pip setuptools
 sudo pip install --upgrade pyasn1
 sudo apt-get install python3-pyyaml
 sudo apt-get install python3-tk
-sudo pip install -r requiremets.txt
 
 cd deeeptask_personality_recognizer
 sudo pip install -r requirements.txt
@@ -82,11 +79,12 @@ The final output data of our module. That consists of personality scores and cla
  		"content": ["human_personality"]
  	},
  	"human_personality": {
- 		"name": "name",
- 		"e_score": 0.5,
- 		"es_score": 0.6,
- 		"e_class": "middle",
- 		"es_class": "high"
+		"name": name,
+		"extraversion": low,
+		"neuroticism": low,
+		"agreeableness": middle,
+		"Conscientiousness": low,
+		"openness": high
  	}
 }
 ```
