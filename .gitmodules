@@ -1,0 +1,6 @@
+[submodule "audio_interface"]
+	path = audio_interface
+	url = git@github.com:hyeonukbhin/audio_interface.git
+[submodule "text_based_pr"]
+	path = text_based_pr
+	url = git@github.com:hyeonukbhin/text_based_pr.git

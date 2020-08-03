@@ -1,15 +1,18 @@
 <launch>
-	<param name="perception/robot_speech_silbot" value="False"/>
-	<param name="perception/human_speech" value="False"/>
-	<param name="perception/name" value=""/>
-	<node name="audio_streamer" pkg="audio_streamer" type="audio_stream_from_mic.py" output="screen">
-	</node>
-	<node name="audio_signal_processor" pkg="audio_signal_processor" type="audio_signal_processor.py" output="screen">
-	</node>
-    <node name="stt_converter" pkg="speech_to_text_converter" type="stt_converter_v4.py" output="screen">
-	</node>
-    <node name="text_translator" pkg="text_translator" type="text_translator.py" output="screen">
-	</node>
+    <arg name="device_name" default="USB Audio Device"/>
+    <arg name="channels" default="1"/>
+    <arg name="sampling_frequency" default="44100"/>
+    <arg name="loop_rate" default="5"/>
+    <arg name="with_spellchecker" default="true"/>
+
+    <include file="$(find bringup_audio_interface)/launch/bringup_audio_interface.launch">
+		<arg name="device_name" default="$(arg device_name)"/>
+		<arg name="channels" default="$(arg channels)"/>
+		<arg name="sampling_frequency" default="$(arg sampling_frequency)"/>
+		<arg name="loop_rate" default="$(arg loop_rate)"/>
+		<arg name="with_spellchecker" default="$(arg with_spellchecker)"/>
+    </include>
+
     <node name="feature_handler" pkg="feature_handler" type="text_normalizer.py" output="screen">
 	</node>
     <node name="model_interfacer" pkg="model_interfacer" type="model_interfacer.py" output="screen">
