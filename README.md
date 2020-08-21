@@ -33,9 +33,17 @@ sudo pip install --upgrade pip setuptools
 sudo pip install --upgrade pyasn1
 sudo apt-get install python3-pyyaml
 sudo apt-get install python3-tk
+sudo pip install -r requirements_py2.txt
+sudo pip3 install -r requirements_py3.txt
+rosrun feature_handler nltk_download.py
+python3 -m spacy download en
+```
 
-cd deeeptask_personality_recognizer
-sudo pip install -r requirements.txt
+you want to use spellchecker
+```bash
+git clone https://github.com/hyeonukbhin/py-hanspell.git
+cd py-hanspell
+python setup.py install
 ```
 
 and then inser your service key:
