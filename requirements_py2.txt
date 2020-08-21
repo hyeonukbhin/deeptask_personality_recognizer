@@ -2,4 +2,4 @@ google-cloud-speech==1.2.0
 pyaudio==0.2.11
 numpy
 termcolor
-requests==2.18.4
+requests==2.20.0
