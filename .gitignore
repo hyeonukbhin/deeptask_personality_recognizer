@@ -4,3 +4,4 @@ venv/
 venv2/
 samples/
 dataset/
+feature_handler/scripts/data.csv

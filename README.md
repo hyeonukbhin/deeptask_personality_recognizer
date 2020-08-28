@@ -2,7 +2,7 @@
 
 ## 2. Package summary
 
-A personality recognizer is an agent that recognizes a user's personality in human-robot interaction. This agent can estimate the state of two personalities (extroversion and neuroticism) among Big-5 personality model defined in psychology. This package uses three types of data such as visual information, acoustical information and physiological data from human behavior.
+A personality recognizer is an agent that recognizes a user's personality in human-robot interaction. This agent can estimate Big-5 personality model defined in psychology. This package uses  data such as acoustical information from human behavior.
 
 - 2.1 Maintainer status:  maintained
 - 2.2 Maintainer: Hyeonuk Bhin <bhu@kist.re.kr>
@@ -11,33 +11,44 @@ A personality recognizer is an agent that recognizes a user's personality in hum
 - 2.5 Source: git https://github.com/hyeonukbhin/deeptask_personality_recognizer (branch: master)
 
 ## 3. Overview
-This package consists of three parts: 1) Data Preprocessor, 2) Personality Model and 3) Social Cue Handler. Data Preprocessor converts raw image, human voice and physiological signal to statistical features that machine can understand. In Personality Model, personality scores are estimated based on a learned regression model for two different personalities of human user. Social Cue Handler passes social interaction information like human action, robot task and interaction history to Personality Model. Following figure shows the overall structure of the personality recognizer.
+This package consists of five parts: 1) Audio Streamer, 2) STT Converter, 3) Text Translator, 4) Text Normalizer and 5) Model Interface. Audio Streamer converts human voice into PCM streaming data. STT Converter converts PCM data into speech sentence text dynamically. Text Translator is responsible for translating Korean sentences into English sentences. Text Normalizer retrieves last 20 sentences from database and then makes document token for word-embedding model. Finally, Model interface classifies user’s document token into each class of Big-5 Personality Traits using trained Deep Learning model and classifier. Following figure shows the overall structure of the personality recognizer.
 
-<center><img src="./assets/[M2-4]structure.png" width="800px"></a></center>
+<center><img src="./assets/images/[M2-4]사용자성격인식기.png" width="800px"></a></center>
 
 
 ## 4. Hardware requirements
-There are four hardware requirements. Currently, recognition model only uses acoustical data from USB microphones.
-- USB Audio Sensor
-- (Option : Kinect, USB Webcam, Empatica E4 Wristband)
+There are our hardware requirements. Currently, recognition model only uses acoustical data from USB microphone.
+- USB microphone
+- Kinect Camera(option)
+- USB Webcam(option)
+- Empatica E4 Wristband(option)
+
 
 ## 5. Quick start  
 To install dependancy:
 ```
-git https://github.com/hyeonukbhin/deeeptask_personality_recognizer.git
+git clone --recursive https://github.com/hyeonukbhin/deeeptask_personality_recognizer.git
 sudo apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
 sudo pip install --upgrade pip setuptools
 sudo pip install --upgrade pyasn1
 sudo apt-get install python3-pyyaml
 sudo apt-get install python3-tk
+sudo pip install -r requirements_py2.txt
+sudo pip3 install -r requirements_py3.txt
+rosrun feature_handler nltk_download.py
+python3 -m spacy download en
+```
 
-cd deeeptask_personality_recognizer
-sudo pip install -r requirements.txt
+you want to use spellchecker
+```bash
+git clone https://github.com/hyeonukbhin/py-hanspell.git
+cd py-hanspell
+python setup.py install
 ```
 
 and then inser your service key:
 ```
-speech_to_text_converter/scripts/service_key.json #rename your service key
+speech_to_text_converter/service_key/service_key.json #rename your service key
 ```
 
 To start personality recognizer’s core:
