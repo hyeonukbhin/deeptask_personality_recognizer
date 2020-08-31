@@ -26,8 +26,17 @@ There are our hardware requirements. Currently, recognition model only uses acou
 
 ## 5. Quick start  
 To install dependancy:
-```
+```bash
 git clone --recursive https://github.com/hyeonukbhin/deeeptask_personality_recognizer.git
+```
+If you have used Acount:Osseri
+```bash
+git clone --recursive https://github.com/Osseri/Group2-deeptask_personality_recognizer.git
+```
+
+*You don't think about permition of text_based_pr_model_gen repository. Please ignore*
+
+```bash
 sudo apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
 sudo pip install --upgrade pip setuptools
 sudo pip install --upgrade pyasn1
@@ -39,14 +48,17 @@ rosrun feature_handler nltk_download.py
 python3 -m spacy download en
 ```
 
-you want to use spellchecker
+
+
+
+If you want to use spellchecker
 ```bash
 git clone https://github.com/hyeonukbhin/py-hanspell.git
 cd py-hanspell
 python setup.py install
 ```
 
-and then inser your service key:
+and then insert your service key:
 ```
 speech_to_text_converter/service_key/service_key.json #rename your service key
 ```
