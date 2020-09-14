@@ -6,6 +6,10 @@
     <arg name="with_spellchecker" default="true"/>
     <arg name="db_initiation" default="true"/>
 
+    <arg name="human_name" default=""/>
+    <arg name="is_speaking_human" default="false"/>
+    <arg name="is_speaking_robot" default="false"/>
+
 
     <include file="$(find bringup_audio_interface)/launch/bringup_audio_interface.launch">
 		<arg name="device_name" default="$(arg device_name)"/>
@@ -13,6 +17,9 @@
 		<arg name="sampling_frequency" default="$(arg sampling_frequency)"/>
 		<arg name="loop_rate" default="$(arg loop_rate)"/>
 		<arg name="with_spellchecker" default="$(arg with_spellchecker)"/>
+		<arg name="human_name" default="$(arg human_name)"/>
+		<arg name="is_speaking_human" default="$(arg is_speaking_human)"/>
+		<arg name="is_speaking_robot" default="$(arg is_speaking_robot)"/>
     </include>
 
     <node name="feature_handler" pkg="feature_handler" type="text_normalizer.py" output="screen">
