@@ -123,8 +123,7 @@ The data rate of the microphone. You should check and fill out each model. This 
 - ~loop_rate (int, default: 20)
 The frequency of the topic. The default is 20 and can be modified by replacing configure.
 - ~with_spellchecker (bool, default: True)
-The frequency of the topic. The default is 20 and can be modified by replacing configure.
-
+This is a parameter for spell checker on korean language. If parameter is true, stt converter will return text which is spell-checked
 
 ### 8.2 State update parameters
 - ~db_initiation (bool, default: False)
@@ -135,16 +134,6 @@ This is the name of a person. As the user changes, information from the percepti
 This is a parameter for the state of human speech. T/F is reflected according to ON / OFF.
 - ~is_speaking_robot (bool, default: False)
 This is a parameter for the state of the robot's speech. T/F is reflected according to ON / OFF.
-
-
-- ~perception/hu (bool, default: False)
-This is a parameter for the state of the robot's speech. T/F is reflected according to ON / OFF.
-- ~perception/human_speech (bool, default: False)
-This is a parameter for the state of human speech. T/F is reflected according to ON / OFF.
-- ~perception/name (string, default: “”)
-This is the name of a person. As the user changes, information from the perception engine is dynamically registered in the parameter server.
-- ~perception/human_dialog (string, default: “”)
-This is human speech. The result of the STT is dynamically registered in the parameter server.
 
 ## 9. Related Applications (Optional)
 
