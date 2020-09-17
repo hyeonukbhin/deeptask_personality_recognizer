@@ -40,10 +40,15 @@ sudo apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp
 sudo apt-get install python3-pyyaml
 sudo apt-get install python3-tk
 sudo apt-get install python-pyaudio
+sudo pip install --upgrade pip
+sudo pip3 install --upgrade pip
 sudo pip install -r requirements_py2.txt
-sudo pip3 install -r requirements_py3.txt
+sudo pip3 install -r requirements_py3.txt # recommend to use python3.6 or higher
+cd ${your catkin workspace}
+caktin_make
+rospack profile
 rosrun feature_handler nltk_download.py
-python3 -m spacy download en
+python3 -m spacy download en # recommend to use python3.6 or higher
 ```
 
 
@@ -53,7 +58,7 @@ If you want to use spellchecker
 ```bash
 git clone https://github.com/hyeonukbhin/py-hanspell.git
 cd py-hanspell
-python setup.py install
+python3 setup.py install
 ```
 
 and then insert your service key:
