@@ -1,14 +1,17 @@
 <launch>
-    <arg name="device_name" default="USB PnP Sound Device"/>
+    <arg name="device_name" default="USB Audio Device"/>
     <arg name="channels" default="1"/>
     <arg name="sampling_frequency" default="44100"/>
     <arg name="loop_rate" default="5"/>
-    <arg name="with_spellchecker" default="true"/>
-    <arg name="db_initiation" default="true"/>
+    <arg name="with_spellchecker" default="false"/>
 
     <arg name="human_name" default=""/>
     <arg name="is_speaking_human" default="false"/>
     <arg name="is_speaking_robot" default="false"/>
+
+    <arg name="db_initiation" default="false"/>
+    <arg name="max_sentences" default="20"/>
+    <arg name="min_sentences" default="15"/>
 
 
     <include file="$(find bringup_audio_interface)/launch/bringup_audio_interface.launch">
@@ -24,9 +27,12 @@
 
     <node name="feature_handler" pkg="feature_handler" type="text_normalizer.py" output="screen">
         <param name="db_initiation" value="$(arg db_initiation)"/>
+        <param name="max_sentences" value="$(arg max_sentences)"/>
 
 	</node>
     <node name="model_interfacer" pkg="model_interfacer" type="model_interfacer.py" output="screen">
+        <param name="min_sentences" value="$(arg min_sentences)"/>
+
 	</node>
 </launch>
 
