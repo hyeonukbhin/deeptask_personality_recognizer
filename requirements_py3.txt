@@ -11,5 +11,5 @@ scikit-learn==0.21.3
 spacy
 termcolor
 pyasn1-modules
-google-cloud-speech
+google-cloud-speech==1.2.0
 googletrans
