@@ -1,5 +1,5 @@
 <launch>
-    <arg name="device_name" default="default"/>
+    <arg name="device_name" default="USB Audio Device"/>
     <arg name="channels" default="1"/>
     <arg name="sampling_frequency" default="44100"/>
     <arg name="loop_rate" default="5"/>
@@ -11,7 +11,7 @@
 
     <arg name="db_initiation" default="false"/>
     <arg name="max_sentences" default="20"/>
-    <arg name="min_sentences" default="15"/>
+    <arg name="min_sentences" default="5"/>
 
 
     <include file="$(find bringup_audio_interface)/launch/bringup_audio_interface.launch">
